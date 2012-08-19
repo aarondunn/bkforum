@@ -1,7 +1,7 @@
 <?php
 /* @var $this BaseForumController */
 $this->breadcrumbs=array(
-    'Home'=>array('/site'),
+    Yii::app()->name=>array('/site'),
     'Forum',//=>array('//forum'),
 );
 ?>
