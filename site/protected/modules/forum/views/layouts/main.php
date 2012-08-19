@@ -107,7 +107,9 @@
                 </div><!--/span-->
                 <div class="span7">
                     <div class="hero-unit">
-                        <?php echo $content; ?>
+                        <div class="container">
+                            <?php echo $content; ?>
+                        </div>
                     </div>
                 </div><!--/span-->
                 <div class="span2">
