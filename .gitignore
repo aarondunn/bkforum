@@ -1,3 +1,6 @@
 *~
+/site/assets
+/site/protected/runtime
+
 /nbproject
 /nbproject/private/

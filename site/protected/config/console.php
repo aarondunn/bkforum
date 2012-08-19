@@ -11,19 +11,20 @@ return array(
 
 	// application components
 	'components'=>array(
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+            'tablePrefix'=>'bkf_',
+		),*/
 		// uncomment the following to use a MySQL database
-		/*
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
+			'connectionString' => 'mysql:host=localhost;dbname=bkforum',
+            'emulatePrepare' => true,
+            'username' => 'sp1222',
+            'password' => '2221ps',
+            'charset' => 'utf8',
+            'tablePrefix' => 'bkf_',
 		),
-		*/
+		
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
