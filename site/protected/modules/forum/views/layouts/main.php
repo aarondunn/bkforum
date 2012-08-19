@@ -1,4 +1,4 @@
-<?php /* @var $this BKForumController */ ?>
+<?php /* @var $this BaseForumController */ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +39,7 @@
 
     <body>
 
-        <div class="navbar navbar-fixed-top">
+        <div id="top-menu" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -63,7 +63,7 @@
                         <ul class="nav">
                             <?php
                                 $items = array(
-                                    array('label'=>'Home', 'url'=>array('/')),
+                                    array('label'=>'Home', 'url'=>array('/site')),
                                     array('label'=>'Forums', 'url'=>array('//forum')),
                                 );
                                 foreach($items as $item) {
@@ -80,71 +80,20 @@
                 </div>
             </div>
         </div>
+        <div id="breadcrumbs">
+            <?php $this->renderPartial('application.modules.forum.views.layouts.breadcrumbs'); ?>
+        </div>
+<!-- content -->
+<?php echo $content; ?>
+<!--/ content -->
 
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3">
-                    <div class="well sidebar-nav">
-                        <ul class="nav nav-list">
-                            <li class="nav-header">Sidebar</li>
-                            <li class="active"><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="nav-header">Sidebar</li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="nav-header">Sidebar</li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                        </ul>
-                    </div><!--/.well -->
-                </div><!--/span-->
-                <div class="span7">
-                    <div class="hero-unit">
-                        <div class="container">
-                            <?php echo $content; ?>
-                        </div>
-                    </div>
-                </div><!--/span-->
-                <div class="span2">
-                    <div class="well sidebar-nav">
-                        <ul class="nav nav-list">
-                            <li class="nav-header">Sidebar</li>
-                            <li class="active"><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="nav-header">Sidebar</li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li class="nav-header">Sidebar</li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                        </ul>
-                    </div><!--/.well -->
-                </div><!--/span-->
-            </div><!--/row-->
+        <hr>
 
-            <hr>
-
-            <footer>
-                <p>Copyright &copy; <?php echo date('Y'); ?> by BugKick.<br/>
-                All Rights Reserved.<br/>
-                </p>
-            </footer>
-
-        </div><!--/.fluid-container-->
+        <footer>
+            <p>Copyright &copy; <?php echo date('Y'); ?> by BugKick.<br/>
+            All Rights Reserved.<br/>
+            </p>
+        </footer>
 
         <!-- Le javascript
         ================================================== -->
