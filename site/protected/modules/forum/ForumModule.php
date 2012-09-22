@@ -7,6 +7,8 @@
 class ForumModule extends CWebModule {
 
     public $defaultController = 'forum';
+    public $userModelClassName = 'User';
+    
     protected $assetsUrl;
 
 	public function init() {

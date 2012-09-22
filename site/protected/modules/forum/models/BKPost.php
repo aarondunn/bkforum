@@ -59,7 +59,7 @@ class BKPost extends ForumActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'topic' => array(self::BELONGS_TO, 'BKTopic', 'topic_id'),
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'user' => array(self::BELONGS_TO, 'BKUser', 'user_id'),
 		);
 	}
 

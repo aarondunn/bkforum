@@ -61,7 +61,12 @@ class User extends CActiveRecord
 	}
 
     public function repr() {
-        return $this->username;
+        $stringRepresentation = '';
+        if($this->id) {
+            $stringRepresentation .= '[#' . $this->id . '] ';
+        }
+        return $stringRepresentation . $this->username
+                . ' (' . $this->email . ')';
     }
 
 	/**

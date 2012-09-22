@@ -30,7 +30,9 @@ return array(
                 '192.168.1.*'
             ),
 		),
-        'forum',
+        'forum'=>array(
+            'userModelClassName'=>'User',
+        ),
 	),
 
 	// application components

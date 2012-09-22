@@ -1,5 +1,4 @@
 <?php
-
 class m120819_050653_create_user_table extends CDbMigration
 {
 	public function up()

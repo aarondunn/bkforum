@@ -16,6 +16,7 @@ class m120819_052719_create_post_table extends CDbMigration
                 '{{post}}', 'topic_id',
                 '{{topic}}', 'id',
                 'CASCADE');
+        
         $this->addForeignKey('fk_user',
                 '{{post}}', 'user_id',
                 '{{user}}', 'id',
