@@ -22,12 +22,12 @@ class ForumController extends BaseForumController {
          * 
          * 
          */
-        $user = BKUser::create();
+        /*$user = BKUser::create();
         $user->username = 'Jimmy Winter';
         $user->email = 'jimmy.winter@gmail.com';
         $user->password = 'password_of_jimmy_winter';
         CVarDumper::dump($user->repr(), 100, true);
-        
+        */
         $this->render('index');
 	}
 }
