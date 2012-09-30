@@ -1,6 +1,8 @@
 *~
 /site/assets
 /site/protected/runtime
+/site/protected/config/main.custom.php
+/site/protected/config/console.custom.php
 
 /nbproject
 /nbproject/private/
