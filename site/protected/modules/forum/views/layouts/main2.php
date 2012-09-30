@@ -3,7 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo $this->assetsUrl; ?>/bootstrap/css/bootstrap.min.css" />
+    <link href="<?php echo $this->assetsUrl; ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="<?php echo $this->assetsUrl; ?>/css/style.css" rel="stylesheet">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
@@ -43,8 +46,6 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $this->assetsUrl; ?>/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -10,16 +11,8 @@
 
         <!-- Le styles -->
         <link href="<?php echo $this->assetsUrl; ?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <style type="text/css">
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-            .sidebar-nav {
-                padding: 9px 0;
-            }
-        </style>
         <link href="<?php echo $this->assetsUrl; ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="<?php echo $this->assetsUrl; ?>/css/style.css" rel="stylesheet">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -98,7 +91,6 @@
         <!-- Le javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo $this->assetsUrl; ?>/bootstrap/js/bootstrap.min.js"></script>
 
     </body>

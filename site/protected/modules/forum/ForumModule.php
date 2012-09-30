@@ -18,6 +18,9 @@ class ForumModule extends CWebModule {
 		));
         $assetsPath = Yii::getPathOfAlias('application.modules.forum.assets');
         $this->assetsUrl = Yii::app()->getAssetManager()->publish($assetsPath);
+        Yii::app()->clientScript->scriptMap=array(
+            'jquery.js'=>false,
+        );
 	}
 
     public function getAssetsUrl() {

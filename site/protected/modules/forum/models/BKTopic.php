@@ -58,8 +58,8 @@ class BKTopic extends ForumActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'posts' => array(self::HAS_MANY, 'Post', 'topic_id'),
-			'forum' => array(self::BELONGS_TO, 'Forum', 'forum_id'),
+			'posts' => array(self::HAS_MANY, 'BKPost', 'topic_id'),
+			'forum' => array(self::BELONGS_TO, 'BKForum', 'forum_id'),
 		);
 	}
 

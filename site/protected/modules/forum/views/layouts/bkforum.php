@@ -33,24 +33,15 @@
         </div><!--/span-->
         <div id="right-menu" class="span2">
             <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header">Sidebar</li>
-                    <li class="active"><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="nav-header">Sidebar</li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="nav-header">Sidebar</li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                </ul>
+                <?php
+                    array_unshift($this->menu, array('label'=>Yii::t('main','Menu')));
+                    $this->widget('zii.widgets.CMenu', array(
+                        'items'=>$this->menu,
+                        'activeCssClass'=>'active',
+                        'firstItemCssClass'=>'nav-header',
+                        'htmlOptions'=>array('class'=>'nav nav-list'),
+                    ));
+                ?>
             </div><!--/.well -->
         </div><!--/span-->
     </div><!--/row-->
