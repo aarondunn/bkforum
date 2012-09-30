@@ -15,6 +15,9 @@ $this->menu=array(
 	array('label'=>'Update Topic', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Topic', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Topics', 'url'=>array('admin')),
+
+    array('label'=>Yii::t('main','Posts'),'itemOptions'=>array('class'=>'nav-header')),
+    array('label'=>'Create Post', 'url'=>array('post/create', 'topicID'=>$model->id)),
 );
 $this->pageTitle = CHtml::encode(Helper::truncateString($model->title));
 ?>

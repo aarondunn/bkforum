@@ -71,7 +71,7 @@ class BKPost extends ForumActiveRecord
 		return array(
 			'id' => 'ID',
 			'time' => 'Time',
-			'body' => 'Body',
+			'body' => 'Message',
 			'topic_id' => 'Topic',
 			'user_id' => 'User',
 		);

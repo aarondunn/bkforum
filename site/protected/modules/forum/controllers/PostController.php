@@ -1,11 +1,11 @@
 <?php
 /**
- * TopicController
+ * PostController
  *
  * @author Alexey kavshirko@gmail.com
  *
  */
-class TopicController extends BaseForumController
+class PostController extends BaseForumController
 {
 	/**
 	 * @return array action filters
@@ -58,28 +58,33 @@ class TopicController extends BaseForumController
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
-     * @param int $forumID
 	 */
-	public function actionCreate($forumID)
+	public function actionCreate($topicID)
 	{
-		$model=new BKTopic;
-        $forum = BKForum::model()->findByPk($forumID);
-        if(empty($forum))
+		$model=new BKPost;
+        $topic = BKTopic::model()->findByPk($topicID);
+        if(empty($topic))
             throw new CHttpException(400,'Invalid request.');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['BKTopic']))
+		if(isset($_POST['BKPost']))
 		{
-			$model->attributes=$_POST['BKTopic'];
+            
+//@To-do: Save Post (need authorisation)...
+
+
+			$model->attributes=$_POST['BKPost'];
+            $model->user_id = Yii::app()->user->id;
+            $model->time = date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-			'forum'=>$forum,
+			'topic'=>$topic,
 		));
 	}
 
@@ -95,9 +100,9 @@ class TopicController extends BaseForumController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['BKTopic']))
+		if(isset($_POST['BKPost']))
 		{
-			$model->attributes=$_POST['BKTopic'];
+			$model->attributes=$_POST['BKPost'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -126,7 +131,7 @@ class TopicController extends BaseForumController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('BKTopic');
+		$dataProvider=new CActiveDataProvider('BKPost');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -137,10 +142,10 @@ class TopicController extends BaseForumController
 	 */
 	public function actionAdmin()
 	{
-		$model=new BKTopic('search');
+		$model=new BKPost('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['BKTopic']))
-			$model->attributes=$_GET['BKTopic'];
+		if(isset($_GET['BKPost']))
+			$model->attributes=$_GET['BKPost'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -154,7 +159,7 @@ class TopicController extends BaseForumController
 	 */
 	public function loadModel($id)
 	{
-		$model=BKTopic::model()->findByPk($id);
+		$model=BKPost::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -166,7 +171,7 @@ class TopicController extends BaseForumController
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='bktopic-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='bkpost-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
