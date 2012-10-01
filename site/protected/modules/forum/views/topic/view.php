@@ -33,5 +33,8 @@ $this->pageTitle = CHtml::encode(Helper::truncateString($model->title));
 	),
 )); ?>
 
-List of posts here..
+<?php $this->widget('zii.widgets.CListView', array(
+	'dataProvider'=>$posts,
+    'itemView'=>'application.modules.forum.views.post._view',
+)); ?>
 

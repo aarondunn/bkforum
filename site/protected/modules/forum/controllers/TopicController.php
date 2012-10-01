@@ -50,8 +50,16 @@ class TopicController extends BaseForumController
 	 */
 	public function actionView($id)
 	{
+        $posts = new CActiveDataProvider('BKPost',
+            array('criteria' => array(
+                'condition' => 'topic_id=:topic_id',
+                'params' => array(':topic_id' => $id)
+            ))
+        );
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'posts'=>$posts,
 		));
 	}
 

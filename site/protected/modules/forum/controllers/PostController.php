@@ -71,15 +71,11 @@ class PostController extends BaseForumController
 
 		if(isset($_POST['BKPost']))
 		{
-            
-//@To-do: Save Post (need authorisation)...
-
-
 			$model->attributes=$_POST['BKPost'];
-            $model->user_id = Yii::app()->user->id;
+            $model->user_id = BKUser::current()->id;
             $model->time = date('Y-m-d H:i:s');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('topic/view','id'=>$topic->id));
 		}
 
 		$this->render('create',array(
