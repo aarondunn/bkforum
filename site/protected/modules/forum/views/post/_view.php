@@ -3,27 +3,19 @@
 /* @var $model BKPost */
 ?>
 
-<div class="view">
+<div class="comment" id="post-<?php echo $data->id ?>">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('time')); ?>:</b>
-	<?php echo CHtml::encode($data->time); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('body')); ?>:</b>
-	<?php echo CHtml::encode($data->body); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('topic_id')); ?>:</b>
-	<?php echo CHtml::encode($data->topic_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_id')); ?>:</b>
-	<?php echo CHtml::encode($data->user_id); ?>
-	<br />
-
+    <div class="comment-left">
+        <p><?php echo CHtml::encode($data->user->repr()); ?></p>
+        <p class="user-details"><?php echo Yii::t('main','Posts:'); ?> <?php echo $data->user->postsCount ?></p>
+    </div>
+    <div class="comment-right <?php if ($index%2==0) echo 'odd '; ?>">
+        <?php echo CHtml::encode($data->body); ?>
+        <div class="comment-stuff">
+            <?php echo CHtml::link('#','#post-'.$data->id)?>
+            <?php echo Yii::t('main','Added')?>
+            <?php echo Time::timeAgoInWords($data->time)?>
+        </div>
+    </div>
 
 </div>

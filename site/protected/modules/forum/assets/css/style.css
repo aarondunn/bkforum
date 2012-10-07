@@ -24,3 +24,43 @@ body {
     font-weight: 200;
     line-height: 27px;
 }
+.pager .previous a{
+    float: none;
+}
+
+.comment-left{
+    padding: 1em 1em 0 1em;
+    width: 120px;
+    float: left;
+}
+dt, .comment-left p{
+    font-size: 13px;
+    font-weight: normal;
+}
+.comment-right{
+    padding: 1.5em 1em;
+    margin-left: 140px;
+}
+.comment-right.odd{
+    /*background-color: #EEE;*/
+}
+.comment-stuff{
+    padding-top: 5px;
+    border-top: 1px dotted #CCC;
+    clear: both;
+    font-size: 11px;
+}
+.comment{
+    border: 1px solid silver;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+p.user-details{
+    font-size: 11px;
+}
+.fr{
+    float: right;
+}

@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 $this->menu=array(
 	array('label'=>'List Forums', 'url'=>array('index')),
-	array('label'=>'Manage Forum', 'url'=>array('admin')),
+	//array('label'=>'Manage Forums', 'url'=>array('admin')),
 );
 $this->pageTitle = Yii::t('main','Create Forum');
 ?>

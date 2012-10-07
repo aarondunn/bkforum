@@ -3,14 +3,13 @@
 /* @var $model BKForum */
 ?>
 
-<div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
-	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-</div>
+<dl class="view">
+    <dt>
+        <?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id' => $data->id)); ?>
+        <span class="fr">
+            <?php echo $data->topicsCount; ?>
+            <?php echo Yii::t('main', 'topics')?>
+        </span>
+    </dt>
+    <dd><em><?php echo CHtml::encode($data->description); ?></em></dd>
+</dl>
