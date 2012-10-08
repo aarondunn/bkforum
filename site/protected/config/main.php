@@ -63,8 +63,8 @@ return CMap::mergeArray(
     		'db'=>array(
     			'connectionString' => 'mysql:host=localhost;dbname=bkforum',
                 'emulatePrepare' => true,
-            'username' => 'sp1222',
-            'password' => '2221ps',
+                'username' => 'sp1222',
+                'password' => '2221ps',
                 'charset' => 'utf8',
                 'tablePrefix' => 'bkf_',
     		),
