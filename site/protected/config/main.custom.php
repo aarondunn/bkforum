@@ -4,7 +4,7 @@
  */
 return array(
     // application components
-    /*'components' => array(
+    'components' => array(
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=bkforum',
             'emulatePrepare' => true,
@@ -13,5 +13,5 @@ return array(
             'charset' => 'utf8',
             'tablePrefix' => 'bkf_',
         ),
-    ),*/
+    ),
 );
