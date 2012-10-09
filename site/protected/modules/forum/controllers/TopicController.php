@@ -81,6 +81,7 @@ class TopicController extends BaseForumController
 		if(isset($_POST['BKTopic']))
 		{
 			$model->attributes=$_POST['BKTopic'];
+            $model->topic_starter_id = BKUser::current()->id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -83,13 +83,5 @@ class BKUser extends ForumActiveRecord {
     public function repr()
     {
         return self::clientModel()->repr($this);
-        /*
-        $stringRepresentation = '';
-        if($this->id) {
-            $stringRepresentation .= '[#' . $this->id . '] ';
-        }
-        return $stringRepresentation . $this->username
-                . ' (' . $this->email . ')';
-        */
     }
 }

@@ -8,6 +8,7 @@
  * @property string $title
  * @property string $description
  * @property integer $forum_id
+ * @property integer $topic_starter_id
  *
  * The followings are the available model relations:
  * @property Post[] $posts
@@ -41,8 +42,8 @@ class BKTopic extends ForumActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, forum_id', 'required'),
-			array('forum_id', 'numerical', 'integerOnly'=>true),
+			array('title, forum_id, topic_starter_id', 'required'),
+			array('forum_id, topic_starter_id', 'numerical', 'integerOnly'=>true),
 			array('title, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -61,6 +62,7 @@ class BKTopic extends ForumActiveRecord
 			'posts' => array(self::HAS_MANY, 'BKPost', 'topic_id'),
 			'postsCount' => array(self::STAT, 'BKPost', 'topic_id'),
 			'forum' => array(self::BELONGS_TO, 'BKForum', 'forum_id'),
+			'topicStarter' => array(self::BELONGS_TO, 'BKUser', 'topic_starter_id'),
 		);
 	}
 
@@ -74,6 +76,7 @@ class BKTopic extends ForumActiveRecord
 			'title' => 'Title',
 			'description' => 'Description',
 			'forum_id' => 'Forum',
+			'topic_starter_id' => 'Topic Starter',
 		);
 	}
 
@@ -92,6 +95,7 @@ class BKTopic extends ForumActiveRecord
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('forum_id',$this->forum_id);
+		$criteria->compare('topic_starter_id',$this->topic_starter_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
