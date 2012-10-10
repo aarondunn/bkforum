@@ -46,7 +46,7 @@ class BKUser extends ForumActiveRecord {
      * Returns current logged-in user's model or null if the user is guest.
      * @return User
      */
-    public static function current()
+/*    public static function current()
     {
 		if(empty(Yii::app()->user) || Yii::app()->user->isGuest) {
 			return null;
@@ -55,7 +55,7 @@ class BKUser extends ForumActiveRecord {
 			self::$_current_user = self::model()->findByPk(Yii::app()->user->id);
 		}
 		return self::$_current_user;
-    }
+    }*/
 
     public function getPostsCount() {
         return BKPost::model()->count('user_id = :id', array(':id'=>$this->id));

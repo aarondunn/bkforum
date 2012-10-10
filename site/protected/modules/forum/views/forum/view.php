@@ -4,7 +4,7 @@
 $this->breadcrumbs=array(
     Yii::app()->name=>array('/site'),
     'Forums'=>array('index'),
-    CHtml::encode(Helper::truncateString($model->title)),
+    CHtml::encode(BKHelper::truncateString($model->title)),
 );
 $this->menu=array(
     array('label'=>'List Forums', 'url'=>array('index')),
@@ -16,7 +16,7 @@ $this->menu=array(
     array('label'=>Yii::t('main','Topics'),'itemOptions'=>array('class'=>'nav-header')),
     array('label'=>'Create Topic', 'url'=>array('topic/create', 'forumID'=>$model->id)),
 );
-$this->pageTitle = CHtml::encode(Helper::truncateString($model->title));
+$this->pageTitle = CHtml::encode(BKHelper::truncateString($model->title));
 ?>
 <header><h3><?php echo $this->pageTitle; ?></h3></header>
 

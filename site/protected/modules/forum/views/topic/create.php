@@ -6,7 +6,7 @@
 $this->breadcrumbs=array(
     Yii::app()->name=>array('/site'),
     'Forums'=>array('forum/index'),
-    CHtml::encode(Helper::truncateString($forum->title))=>array('forum/view','id'=>$forum->id),
+    CHtml::encode(BKHelper::truncateString($forum->title))=>array('forum/view','id'=>$forum->id),
     'Create',
 );
 

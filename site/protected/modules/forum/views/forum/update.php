@@ -4,7 +4,7 @@
 $this->breadcrumbs=array(
     Yii::app()->name=>array('/site'),
     'Forums'=>array('index'),
-    CHtml::encode(Helper::truncateString($model->title))=>array('view','id'=>$model->id),
+    CHtml::encode(BKHelper::truncateString($model->title))=>array('view','id'=>$model->id),
     'Update',
 );
 $this->menu=array(

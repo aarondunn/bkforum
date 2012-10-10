@@ -5,7 +5,7 @@
  * Time: 16:29
  */
 
-class Helper
+class BKHelper
 {
     //Usual trimming
     public static function truncateString($string, $limit = 50, $break = ' ', $pad = "...")
