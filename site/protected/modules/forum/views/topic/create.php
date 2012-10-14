@@ -11,8 +11,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Topic', 'url'=>array('forum/view','id'=>$forum->id)),
-	array('label'=>'Manage Topics', 'url'=>array('admin')),
+	array('label'=>'List Topics', 'url'=>array('forum/view','id'=>$forum->id)),
+//	array('label'=>'Manage Topics', 'url'=>array('admin')),
 );
 $this->pageTitle = Yii::t('main','Create Topic');
 ?>

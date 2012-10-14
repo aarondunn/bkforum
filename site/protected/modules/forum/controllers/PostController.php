@@ -72,6 +72,14 @@ class PostController extends BaseForumController
 		if(isset($_POST['BKPost']))
 		{
 			$model->attributes=$_POST['BKPost'];
+            $model->body = BKActivateLinks::perform($model->body);
+            $p = new CHtmlPurifier($this);
+            $p->options=array(
+                'HTML.AllowedElements'=>
+                    'p,div,span,ul,ol,li,a,hr,pre,br,h1,h2,h3,h4,h5,h6,b,i,u,strike,big,small',
+                'HTML.AllowedAttributes'=>'style,class,width,size,href, align',
+            );
+            $model->body = $p->purify($model->body);
             $model->user_id = Yii::app()->user->id;
             $model->time = date('Y-m-d H:i:s');
 			if($model->save())

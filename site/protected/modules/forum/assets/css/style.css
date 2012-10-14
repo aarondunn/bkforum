@@ -58,7 +58,7 @@ dt, .comment-left p{
     border-radius: 6px;
     margin-bottom: 10px;
 }
-p.user-details{
+.hero-unit p.user-details{
     font-size: 11px;
 }
 .fr{
@@ -66,4 +66,17 @@ p.user-details{
 }
 .pr_20{
     padding-right: 20px;
+}
+.pad_20{
+    padding: 20px 0;
+}
+.navbar-fixed-top, .navbar-fixed-bottom{
+    z-index: 2003;
+}
+.row.buttons{
+    padding-top: 10px;
+}
+.hero-unit p{
+    font-size: inherit;
+    font-weight: normal;
 }

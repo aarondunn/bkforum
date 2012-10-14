@@ -37,5 +37,12 @@ $this->pageTitle = CHtml::encode($model->title);
     )
 )); ?>
 
-<?php echo CHtml::link(Yii::t('main','New Post'), array('/forum/post/create', 'topicID'=>$model->id),
-    array('class'=>'btn btn-primary btn-toolbar'))?>
+<h4 class="pad_20"><?php echo Yii::t('main','Post Comment');  ?></h4>
+
+<?php
+    if (!Yii::app()->user->isGuest)
+        echo $this->renderPartial('forum.views.post._form', array('model'=>$form, 'topic'=>$model));
+    else
+        echo CHtml::link(Yii::t('main','New Post'), array('/forum/post/create', 'topicID'=>$model->id),
+            array('class'=>'btn btn-primary btn-toolbar'));
+?>

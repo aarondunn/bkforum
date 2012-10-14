@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Back to Topic', 'url'=>array('topic/view','id'=>$topic->id)),
 );
-$this->pageTitle = Yii::t('main','Create Post');
+$this->pageTitle = Yii::t('main','Post Comment');
 ?>
 
 <header><h3><?php echo $this->pageTitle; ?></h3></header>

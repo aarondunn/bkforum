@@ -57,9 +57,12 @@ class TopicController extends BaseForumController
             ))
         );
 
+        $form=new BKPost;
+
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'posts'=>$posts,
+			'form'=>$form,
 		));
 	}
 

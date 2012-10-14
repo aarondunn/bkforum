@@ -10,7 +10,7 @@
         <p class="user-details"><?php echo Yii::t('main','Posts:'); ?> <?php echo $data->user->postsCount ?></p>
     </div>
     <div class="comment-right <?php if ($index%2==0) echo 'odd '; ?>">
-        <?php echo CHtml::encode($data->body); ?>
+        <?php echo $data->body; ?>
         <div class="comment-stuff">
             <?php echo CHtml::link('#','#post-'.$data->id)?>
             <?php echo Yii::t('main','Added')?>

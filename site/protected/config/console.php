@@ -15,6 +15,7 @@ return CMap::mergeArray(
     		'application.models.*',
     		'application.components.*',
             'application.modules.forum.components.*',
+            'application.modules.forum.extensions.*',
     	),
 
     	'modules'=>array(
