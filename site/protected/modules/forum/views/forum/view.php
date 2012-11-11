@@ -20,8 +20,11 @@ $this->menu=array(
     ),
    	array(
         'label'=>'Delete Forum', 'url'=>'#',
-        'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),
-        'confirm'=>'Are you sure you want to delete this item?'),
+        'linkOptions'=>array(
+            'submit'=>array('delete','id'=>$model->id),
+            'confirm'=>'Are you sure you want to delete this item?',
+            'csrf' => true
+        ),
         'visible'=>Yii::app()->user->checkAccess('moderator')
     ),
    	array(

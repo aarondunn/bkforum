@@ -26,7 +26,10 @@
                                  'type'=>'post',
                                  'success'=>'function(data,status){
                                      $.fn.yiiListView.update("post-list");
-                                 }'
+                                 }',
+                                 'data'=>array(
+                                     'YII_CSRF_TOKEN'=>Yii::app()->request->csrfToken,
+                                 ),
                              ),
                              array('confirm'=>'Are you sure?', 'id' => 'remove-link-'.uniqid())),
                          CHtml::closeTag('span');
