@@ -6,8 +6,10 @@ $this->breadcrumbs=array(
     'Forums',//=>array('//forum'),
 );
 $this->menu=array(
-	array('label'=>'Create Forum', 'url'=>array('create')),
-	//array('label'=>'Manage Forums', 'url'=>array('admin')),
+	array('label'=>'Create Forum', 'url'=>array('create'),
+	    'visible'=>Yii::app()->user->checkAccess('moderator')),
+	array('label'=>'Manage Forums', 'url'=>array('admin'),
+	    'visible'=>Yii::app()->user->checkAccess('moderator')),
 );
 ?>
 <header><h2><?php echo $this->pageTitle; ?></h2></header>
@@ -24,5 +26,9 @@ $this->menu=array(
     )
 )); ?>
 
-<?php echo CHtml::link(Yii::t('main','New Forum'), '/forum/forum/create',
-    array('class'=>'btn btn-primary btn-toolbar'))?>
+<?php
+    if(Yii::app()->user->checkAccess('moderator')){
+        echo CHtml::link(Yii::t('main','New Forum'), '/forum/forum/create',
+            array('class'=>'btn btn-primary btn-toolbar'));
+    }
+?>

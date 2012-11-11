@@ -9,9 +9,20 @@ $this->breadcrumbs=array(
 );
 $this->menu=array(
     array('label'=>'List Forums', 'url'=>array('index')),
-   	array('label'=>'Create Forum', 'url'=>array('create')),
-   	array('label'=>'View Forum', 'url'=>array('view', 'id'=>$model->id)),
-   	array('label'=>'Manage Forum', 'url'=>array('admin')),
+   	array(
+        'label'=>'Create Forum',
+        'url'=>array('create'),
+   	    'visible'=>Yii::app()->user->checkAccess('moderator')
+    ),
+   	array(
+        'label'=>'View Forum',
+        'url'=>array('view', 'id'=>$model->id)
+    ),
+   	array(
+        'label'=>'Manage Forums',
+        'url'=>array('admin'),
+   	    'visible'=>Yii::app()->user->checkAccess('moderator')
+    ),
 );
 $this->pageTitle = Yii::t('main','Update Forum');
 ?>

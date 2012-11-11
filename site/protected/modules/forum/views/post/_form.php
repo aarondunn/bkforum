@@ -10,7 +10,9 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'bkpost-form',
 	'enableAjaxValidation'=>false,
-    'action'=>'/forum/post/create/topicID/'.$topic->id
+    'action'=>$model->isNewRecord
+        ? '/forum/post/create/topicID/' . $topic->id
+        : '/forum/post/update/id/' . $model->id
 )); ?>
 
 <!--	<p class="note">Fields with <span class="required">*</span> are required.</p>-->

@@ -7,12 +7,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create BKTopic', 'url'=>array('create')),
-	array('label'=>'Manage BKTopic', 'url'=>array('admin')),
+	array('label'=>'Create Topic', 'url'=>array('create'),
+		'visible'=>Yii::app()->user->checkAccess('user')),
+	array('label'=>'Manage Topic', 'url'=>array('admin'),
+	    'visible'=>Yii::app()->user->checkAccess('moderator')),
 );
 ?>
 
-<h1>Bktopics</h1>
+<h1>Topics</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

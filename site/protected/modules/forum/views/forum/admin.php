@@ -8,7 +8,8 @@ $this->breadcrumbs=array(
 );
 $this->menu=array(
     array('label'=>'List Forums', 'url'=>array('index')),
-   	array('label'=>'Create Forum', 'url'=>array('create')),
+   	array('label'=>'Create Forum', 'url'=>array('create'),
+           'visible'=>Yii::app()->user->checkAccess('moderator')),
 );
 $this->pageTitle = Yii::t('main','Manage Forums');
 

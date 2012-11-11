@@ -63,12 +63,13 @@ class User extends CActiveRecord
         if($user === null) {
             $user = $this;
         }
-        $stringRepresentation = '';
+/*        $stringRepresentation = '';
         if($user->id) {
             $stringRepresentation .= '[#' . $user->id . '] ';
         }
         return $stringRepresentation . $user->username
-                . ' (' . $user->email . ')';
+                . ' (' . $user->email . ')';*/
+        return $user->username;
     }
 
 	/**

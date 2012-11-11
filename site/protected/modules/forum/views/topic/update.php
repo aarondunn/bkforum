@@ -11,10 +11,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Topics', 'url'=>array('forum/view', 'id'=>$model->forum->id)),
-	array('label'=>'Create Topic', 'url'=>array('create', 'forumID'=>$model->forum->id)),
+	array('label'=>'Back to Forum', 'url'=>array('forum/view', 'id'=>$model->forum->id)),
+	array(
+        'label'=>'Create Topic',
+        'url'=>array('create', 'forumID'=>$model->forum->id),
+	    'visible'=>Yii::app()->user->checkAccess('user')
+    ),
 	array('label'=>'View Topic', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Topic', 'url'=>array('admin')),
+/*	array('label'=>'Manage Topics', 'url'=>array('admin'),
+	    'visible'=>Yii::app()->user->checkAccess('moderator')),*/
 );
 $this->pageTitle = Yii::t('main','Update Topic');
 ?>

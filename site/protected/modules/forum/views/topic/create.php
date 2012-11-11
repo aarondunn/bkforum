@@ -11,8 +11,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Topics', 'url'=>array('forum/view','id'=>$forum->id)),
-//	array('label'=>'Manage Topics', 'url'=>array('admin')),
+	array('label'=>'Back to Forum', 'url'=>array('forum/view','id'=>$forum->id)),
+	array('label'=>'Manage Topics', 'url'=>array('admin'),
+	    'visible'=>Yii::app()->user->checkAccess('moderator')),
 );
 $this->pageTitle = Yii::t('main','Create Topic');
 ?>

@@ -80,3 +80,12 @@ dt, .comment-left p{
     font-size: inherit;
     font-weight: normal;
 }
+footer{
+    text-align: center;
+}
+.comment-actions a{
+    margin-right: 5px;
+}
+.comment-actions{
+    float: right;
+}

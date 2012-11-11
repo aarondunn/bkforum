@@ -35,6 +35,7 @@ return CMap::mergeArray(
     		),
             'forum'=>array(
                 'userModelClassName'=>'User',
+                'userRolePropertyName'=>'forum_role', // User model property that defines user role on forum
             ),
     	),
 
@@ -43,6 +44,7 @@ return CMap::mergeArray(
     		'user'=>array(
     			// enable cookie-based authentication
     			'allowAutoLogin'=>true,
+                'class' => 'BKWebUser',
     		),
     		// uncomment the following to enable URLs in path-format
 
@@ -89,6 +91,11 @@ return CMap::mergeArray(
     				*/
     			),
     		),
+
+            'authManager' => array(
+                'class' => 'BKPhpAuthManager',
+                'defaultRoles' => array('guest'),
+            ),
     	),
 
     	// application-level parameters that can be accessed

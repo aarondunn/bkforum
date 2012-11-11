@@ -3,12 +3,14 @@
  * BKForumModule
  *
  * @author f0t0n
+ * @author Alexey Kavshirko <kavshirko@gmail.com>
  */
 class ForumModule extends CWebModule {
 
     public $defaultController = 'forum';
     public $userModelClassName = 'User';
-    
+    public $userRolePropertyName = 'forum_role';
+
     protected $assetsUrl;
 
 	public function init() {
