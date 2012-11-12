@@ -113,6 +113,7 @@ class PostController extends BaseForumController
 
 		$this->render('update',array(
 			'model'=>$model,
+            'topic'=>$model->topic,
 		));
 	}
 

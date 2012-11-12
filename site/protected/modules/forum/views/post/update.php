@@ -22,4 +22,4 @@ $this->pageTitle = Yii::t('main','Update Post');
 ?>
 <header><h3><?php echo $this->pageTitle; ?></h3></header>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'topic'=>$topic)); ?>
