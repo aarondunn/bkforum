@@ -89,3 +89,19 @@ footer{
 .comment-actions{
     float: right;
 }
+.search_box {
+    margin: 5px;
+	width: 155px;
+}
+a.cancel-search{
+    display: block;
+    height: 16px;
+    position: absolute;
+    right: 18px;
+    top: 7px;
+    width: 16px;
+    outline: none !important;
+}
+.search-container{
+    position: relative;
+}

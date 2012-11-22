@@ -16,15 +16,11 @@ $this->menu=array(
 
 <header class="nav nav-header"><?php echo Yii::t('main','List of Forums')?></header>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-    'summaryText'=>'',
-    'emptyText'=>Yii::t('main','No forums yet.'),
-    'pager'=>array(
-        'header'=>'',
-    )
-)); ?>
+<div class="topics-container">
+    <?php $this->renderPartial('application.modules.forum.views.topic._list',array(
+    	'dataProvider'=>$dataProvider,
+    )); ?>
+</div>
 
 <?php
     if(Yii::app()->user->checkAccess('moderator')){

@@ -41,17 +41,26 @@
                         <span class="icon-bar"></span>
                     </a>
                     <a class="brand" href="<?php echo Yii::app()->request->baseUrl; ?>"><?php echo Yii::app()->name; ?></a>
+                    <?php if(!Yii::app()->user->isGuest):?>
                     <div class="btn-group pull-right">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user"></i> Username
+                            <i class="icon-user"></i>
+                            <?php echo BKUser::current()->repr()?>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Profile</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Sign Out</a></li>
+                            <li>
+                                <?php
+                                    echo CHtml::link(Yii::t('main', 'Logout'),
+                                    Yii::app()->createUrl('site/logout', array(
+                                        'token'=>Yii::app()->getRequest()->getCsrfToken())));
+                                ?>
+                            </li>
                         </ul>
                     </div>
+                    <?php endif; ?>
                     <div class="nav-collapse">
                         <ul class="nav">
                             <?php
@@ -76,9 +85,10 @@
         <div id="breadcrumbs">
             <?php $this->renderPartial('application.modules.forum.views.layouts.breadcrumbs'); ?>
         </div>
-<!-- content -->
-<?php echo $content; ?>
-<!--/ content -->
+
+        <!-- content -->
+        <?php echo $content; ?>
+        <!--/ content -->
 
         <hr>
 

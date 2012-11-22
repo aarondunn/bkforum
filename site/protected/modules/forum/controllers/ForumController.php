@@ -9,6 +9,8 @@
  */
 class ForumController extends BaseForumController
 {
+    const TOPICS_PER_PAGE = 10;
+
     /**
      * @return array action filters
      */
@@ -70,10 +72,35 @@ class ForumController extends BaseForumController
         CVarDumper::dump($user->repr(), 100, true);
         */
 
-        $dataProvider = new CActiveDataProvider('BKForum');
-        $this->render('index', array(
-            'dataProvider' => $dataProvider,
+        $keyword = Yii::app()->request->getParam('forumSearchKeyword', null);
+        $criteria = new CDbCriteria();
+        if(!empty($keyword)){
+            $criteria->addSearchCondition('title', $keyword, true, 'OR');
+            $criteria->addSearchCondition('description', $keyword, true, 'OR');
+            $criteria->addSearchCondition('posts.body', $keyword, true, 'OR');
+            $criteria->with = array(
+                'posts'=>array(
+                    'together'=>true,
+                )
+            );
+        }
+
+        $dataProvider = new CActiveDataProvider('BKTopic',array(
+            'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>self::TOPICS_PER_PAGE,
+            ),
         ));
+        if(Yii::app()->request->isAjaxRequest){
+            $this->renderPartial('/topic/_list', array(
+                'dataProvider' => $dataProvider,
+            ));
+        }
+        else{
+            $this->render('index', array(
+                'dataProvider' => $dataProvider,
+            ));
+        }
     }
 
     /**

@@ -45,15 +45,17 @@ $this->pageTitle = CHtml::encode(BKHelper::truncateString($model->title));
 
 <header><em><?php echo CHtml::encode($model->description) ?></em></header>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$topics,
-	'itemView'=>'application.modules.forum.views.topic._view',
-    'summaryText'=>'',
-    'emptyText'=>Yii::t('main','No topics yet.'),
-    'pager'=>array(
-        'header'=>'',
-    )
-)); ?>
+<div class="topics-container">
+    <?php $this->widget('zii.widgets.CListView', array(
+    	'dataProvider'=>$topics,
+    	'itemView'=>'application.modules.forum.views.topic._view',
+        'summaryText'=>'',
+        'emptyText'=>Yii::t('main','No topics yet.'),
+        'pager'=>array(
+            'header'=>'',
+        )
+    )); ?>
+</div>
 
 <?php
     if(Yii::app()->user->checkAccess('user')){

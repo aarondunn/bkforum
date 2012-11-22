@@ -43,6 +43,14 @@
                     ));
                 ?>
             </div><!--/.well -->
+            <div class="well sidebar-nav">
+                <?php
+                    $this->widget('ForumSearch');
+                ?>
+                <?php
+                    $this->widget('Forums');
+                ?>
+            </div><!--/.well -->
         </div><!--/span-->
     </div><!--/row-->
 
