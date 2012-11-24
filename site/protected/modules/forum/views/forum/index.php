@@ -14,7 +14,7 @@ $this->menu=array(
 ?>
 <header><h2><?php echo $this->pageTitle; ?></h2></header>
 
-<header class="nav nav-header"><?php echo Yii::t('main','List of Forums')?></header>
+<header class="nav nav-header"><?php echo Yii::t('main','List of Topics')?></header>
 
 <div class="topics-container">
     <?php $this->renderPartial('application.modules.forum.views.topic._list',array(
