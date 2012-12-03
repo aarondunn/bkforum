@@ -9,6 +9,7 @@
  * @property string $description
  * @property integer $forum_id
  * @property integer $topic_starter_id
+ * @property string $time
  *
  * The followings are the available model relations:
  * @property Post[] $posts
@@ -42,12 +43,12 @@ class BKTopic extends ForumActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, forum_id, topic_starter_id', 'required'),
+			array('time, title, forum_id, topic_starter_id', 'required'),
 			array('forum_id, topic_starter_id', 'numerical', 'integerOnly'=>true),
 			array('title, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, forum_id', 'safe', 'on'=>'search'),
+			array('id, title, description, forum_id, time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +78,7 @@ class BKTopic extends ForumActiveRecord
 			'description' => 'Description',
 			'forum_id' => 'Forum',
 			'topic_starter_id' => 'Topic Starter',
+            'time' => 'Time',
 		);
 	}
 
@@ -96,6 +98,7 @@ class BKTopic extends ForumActiveRecord
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('forum_id',$this->forum_id);
 		$criteria->compare('topic_starter_id',$this->topic_starter_id);
+        $criteria->compare('time',$this->time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

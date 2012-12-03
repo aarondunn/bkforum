@@ -85,6 +85,7 @@ class TopicController extends BaseForumController
 		{
 			$model->attributes=$_POST['BKTopic'];
             $model->topic_starter_id = Yii::app()->user->id;
+            $model->time = date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
