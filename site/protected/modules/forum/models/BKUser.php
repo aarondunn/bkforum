@@ -119,4 +119,13 @@ class BKUser extends ForumActiveRecord
         $roleName = self::getUserRolePropertyName();
         return $this->$roleName;
     }
+
+    /**
+     * Returns user photo
+     * @return string representation of User model
+     */
+    public function getImage()
+    {
+        return self::clientModel()->getImage($this);
+    }
 }

@@ -72,6 +72,18 @@ class User extends CActiveRecord
         return $user->username;
     }
 
+    /**
+     * Returns path to user image
+     * @param null $user
+     * @return string
+     */
+    public function getImage($user = null) {
+        if($user === null) {
+            $user = $this;
+        }
+        return 'path/to/user/logo';
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
