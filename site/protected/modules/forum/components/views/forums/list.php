@@ -10,7 +10,7 @@ $this->widget('zii.widgets.CListView', array(
     'summaryText'=>'',
     'itemsTagName'=>'ul',
     'itemsCssClass'=>'nav nav-list',
-    'emptyText'=>Yii::t('main','No topics yet.'),
+    'emptyText'=>Yii::t('main','No forums yet.'),
     'pager'=>array(
         'header'=>'',
     ),
