@@ -26,4 +26,4 @@
       </span>
   </dt>
   <dd><em><?php echo CHtml::encode($data->description); ?></em></dd>
-</dl><?php //@to-do: add link?>
+</dl>
