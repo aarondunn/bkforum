@@ -47,6 +47,7 @@ $this->pageTitle = CHtml::encode(BKHelper::truncateString($model->title));
 
 <div class="topics-container">
     <?php $this->widget('zii.widgets.CListView', array(
+        'id'=>'topic-list',
     	'dataProvider'=>$topics,
     	'itemView'=>'application.modules.forum.views.topic._view',
         'summaryText'=>'',

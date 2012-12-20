@@ -10,6 +10,7 @@
  * @property integer $forum_id
  * @property integer $topic_starter_id
  * @property string $time
+ * @property int $archived
  *
  * The followings are the available model relations:
  * @property Post[] $posts
@@ -44,13 +45,21 @@ class BKTopic extends ForumActiveRecord
 		// will receive user inputs.
 		return array(
 			array('time, title, forum_id, topic_starter_id', 'required'),
-			array('forum_id, topic_starter_id', 'numerical', 'integerOnly'=>true),
+			array('forum_id, topic_starter_id, archived', 'numerical', 'integerOnly'=>true),
 			array('title, description', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, forum_id, time', 'safe', 'on'=>'search'),
+			array('id, title, description, forum_id, time, archived', 'safe', 'on'=>'search'),
 		);
 	}
+
+    public function scopes() {
+        return array(
+            'active' => array(
+                'condition' => 't.archived=0',
+            )
+        );
+    }
 
 	/**
 	 * @return array relational rules.
@@ -79,6 +88,7 @@ class BKTopic extends ForumActiveRecord
 			'forum_id' => 'Forum',
 			'topic_starter_id' => 'Topic Starter',
             'time' => 'Time',
+            'archived' => 'Archived',
 		);
 	}
 
@@ -99,6 +109,7 @@ class BKTopic extends ForumActiveRecord
 		$criteria->compare('forum_id',$this->forum_id);
 		$criteria->compare('topic_starter_id',$this->topic_starter_id);
         $criteria->compare('time',$this->time,true);
+        $criteria->compare('archived',$this->archived,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -114,6 +114,7 @@ class ForumController extends BaseForumController
         $topics = new CActiveDataProvider('BKTopic',
             array('criteria' => array(
                 'condition' => 'forum_id=:forum_id',
+                'scopes'=>'active',
                 'params' => array(':forum_id' => $model->id)
             ))
         );

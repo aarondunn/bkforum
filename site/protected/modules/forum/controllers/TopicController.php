@@ -35,7 +35,7 @@ class TopicController extends BaseForumController
 				'roles'=>array('user'),
 			),
 			array('allow', // moderator
-				'actions'=>array('update','admin','delete'),
+				'actions'=>array('update','admin','delete','hide'),
 				'roles'=>array('moderator'),
 			),
 			array('deny',  // deny all users
@@ -134,6 +134,19 @@ class TopicController extends BaseForumController
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
+    /**
+   	 * Archives a particular model.
+   	 * If archiving is successful, the browser will be redirected to the 'admin' page.
+   	 * @param integer $id the ID of the model to be deleted
+   	 */
+   	public function actionHide($id){
+   		$model = $this->loadModel($id);
+        $model->archived = ($model->archived==1)? 0 : 1;
+        $model->save();
+   		// if AJAX request (triggered by archiving via admin grid view), we should not redirect the browser
+   		if(!isset($_GET['ajax']))
+   			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+   	}
 	/**
 	 * Lists all models.
 	 */

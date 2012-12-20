@@ -71,3 +71,14 @@ $this->pageTitle = CHtml::encode($model->title);
         echo CHtml::link(Yii::t('main','New Post'), array('/forum/post/create', 'topicID'=>$model->id),
             array('class'=>'btn btn-primary btn-toolbar'));
 ?>
+
+<?php
+//Yii::app()->clientScript->registerScript('post-comment', "
+//
+//$('#submit_post').click()
+//
+//function reApplyDropdownStyle() {
+//    $('.filters select').chosen();
+//}
+//$('.filters select').chosen();
+//", CClientScript::POS_READY);
